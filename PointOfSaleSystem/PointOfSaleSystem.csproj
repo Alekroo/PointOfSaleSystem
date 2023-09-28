@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\ball.jpg" />
+    <None Remove="Assets\bath.jpg" />
+    <None Remove="Assets\birdfood.jpg" />
+    <None Remove="Assets\bone.jpg" />
+    <None Remove="Assets\bowl.jpg" />
+    <None Remove="Assets\catsnack.jpg" />
+    <None Remove="Assets\dog.jpg" />
+    <None Remove="Assets\dogdinner.jpg" />
+    <None Remove="Assets\mouse.jpg" />
+    <None Remove="Assets\tower.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\bath.jpg" />
+    <Resource Include="Assets\bone.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\ball.jpg" />
+    <Resource Include="Assets\birdfood.jpg" />
+    <Resource Include="Assets\bowl.jpg" />
+    <Resource Include="Assets\catsnack.jpg" />
+    <Resource Include="Assets\dog.jpg" />
+    <Resource Include="Assets\dogdinner.jpg" />
+    <Resource Include="Assets\mouse.jpg" />
+    <Resource Include="Assets\tower.jpg" />
+  </ItemGroup>
+
+</Project>

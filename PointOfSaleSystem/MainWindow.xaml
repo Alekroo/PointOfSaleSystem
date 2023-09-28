@@ -1,0 +1,115 @@
+﻿<Window x:Class="PointOfSaleSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Point of Sale System" Height="700" Width="900">
+
+    
+    
+    <Grid Background="#2C3E50">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Panel -->
+        
+        <StackPanel Grid.Column="0" Background="#2C3E50" Margin="20">
+            <TextBlock FontSize="24" Foreground="White" Text="Add Products" HorizontalAlignment="Center" Margin="0 10"/>
+            <Button Height="30" Content="ADD BY NAME" Click="AddByName_Click" Background="#3498DB" Foreground="White" Margin="10 10"/>
+            <Button Height="30" Content="ADD BY ID" Click="AddById_Click" Background="#3498DB" Foreground="White" Margin="10 10"/>
+            <Button Height="30" Content="ADD FROM LIST" Click="Button_Click" Background="#3498DB" Foreground="White" Margin="10 10"/>
+            <TextBlock FontSize="24" Foreground="White" Text="Remove Products" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+            <Button Height="30" Content="REMOVE BY NAME" Click="RemovedByName_Click" Background="#E74C3C" Foreground="White" Margin="10 10"/>
+            <Button Height="30" Content="REMOVE BY ID" Click="RemovedById_Click" Background="#E74C3C" Foreground="White" Margin="10 10"/>
+            <TextBlock FontSize="24" Foreground="White" Text="Log" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+
+            <ListView Name="LogListView" Height="200" Background="White" Foreground="#2C3E50">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Actions" Width="260">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" FontWeight="Bold" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+
+        
+        
+        <!-- Right Panel -->
+        <Grid Grid.Column="1" Margin="20">
+            <!-- Header Row -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock FontSize="24" Foreground="White" Text="Product List" Grid.Row="0" HorizontalAlignment="Center"/>
+
+            <!-- Product List -->
+            <ListView Name="myListView" Grid.Row="1" Background="#ECF0F1" Foreground="#2C3E50" BorderThickness="1">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" Width="150">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" TextAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="ID" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Width="90" Text="{Binding Id}" TextAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Quantity" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Width="90" Text="{Binding Quantity}" TextAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Price" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Width="90" Text="{Binding Price}" TextAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Sum" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Width="80" Text="{Binding Sum}" TextAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+
+                </ListView.View>
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Delete" Click="DeleteMenuItem_Click" />
+                        <MenuItem Header="Adjust Quantity" Click="ChangeNameMenuItem_Click" />
+                    </ContextMenu>
+                </ListView.ContextMenu>
+            </ListView>
+
+            <!-- Total Sum -->
+
+            <TextBlock Name="totalSum" Foreground="White" FontSize="24" Text="{Binding Sum}" Grid.Row="2" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <Button Content="Buy" Width="100" Height="40" HorizontalAlignment="Right" Grid.Row="2" Margin="0,10,20,0" VerticalAlignment="Top" Background="#27AE60" Foreground="White" Click="Buy_Click"/>
+        
+        </Grid>
+        
+    </Grid>
+</Window>
